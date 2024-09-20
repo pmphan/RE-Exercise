@@ -3,7 +3,7 @@
 #include "my_loader.h"
 
 // Fib function signature
-typedef unsigned long (__stdcall* t_func)(int n);
+typedef unsigned long long (__stdcall* t_func)(int n);
 
 int main()
 {
