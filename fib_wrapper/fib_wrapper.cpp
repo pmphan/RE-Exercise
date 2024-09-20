@@ -17,7 +17,7 @@ int main()
     FARPROC procAddress = GetProcAddress(hModule, MAKEINTRESOURCEA(1));
     if (procAddress == NULL) {
         FreeLibrary(hModule);
-        std::cerr << "Could not load function by ordinal 1 from fib.dll" << std::endl;
+        std::cerr << "Could not load function from fib.dll" << std::endl;
         return EXIT_FAILURE;
     }
 

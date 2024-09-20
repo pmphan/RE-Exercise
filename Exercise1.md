@@ -42,7 +42,9 @@
 
 3. Can you export a function without a name?
 
-   It's possible to export function by ordinal instead of by name. Relevant Microsoft's documentation: [Exporting Functions from a DLL by Ordinal Rather Than by Name](https://learn.microsoft.com/en-us/cpp/build/exporting-functions-from-a-dll-by-ordinal-rather-than-by-name?view=msvc-170)
+   It's possible to export function by ordinal only instead of by name. Relevant Microsoft's documentation: [Exporting Functions from a DLL by Ordinal Rather Than by Name](https://learn.microsoft.com/en-us/cpp/build/exporting-functions-from-a-dll-by-ordinal-rather-than-by-name?view=msvc-170).
+
+   In this exercise, `fib_noname` is exported with `NONAME` option. See [fib.def](fib/fib.def)
 
 4. Can you make a dll without the dll name as a string somewhere in the binary?
 
@@ -51,6 +53,8 @@
 5. Can you change the image base?
 
    Presumably by using the `/BASE` linking option: https://learn.microsoft.com/en-us/cpp/build/reference/base-base-address?view=msvc-170
+
+   In this exercise, `/BASE` is set to 0x60000000. See [fib.vcxproj](fib/fib.vcxproj#L88).
 
 6. How can you reduce the image size?
 
@@ -61,7 +65,7 @@
 1. Analyze `fib_wrapper.exe` using static analysis tools and IDA.
 
    Remark:
-   * IDA couldn't resolve operator `<<`.
+   * IDA couldn't recognize operator `<<`. It is decompiled into a `sub_address` function.
 
 2. How would you detect dynamic DLL loading?
 
@@ -69,7 +73,11 @@
 
 ## Q3 - fib_wrapper_2.exe
 
-Useful reference: https://learn.microsoft.com/en-us/archive/msdn-magazine/2002/february/inside-windows-win32-portable-executable-file-format-in-detail
+Useful references:
+  * [Header structure](https://learn.microsoft.com/en-us/archive/msdn-magazine/2002/february/inside-windows-win32-portable-executable-file-format-in-detail)
+  * [`GetProcAddress` documentation](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress)
+  * [How ordinal works and other stuff](https://www.infosecinstitute.com/resources/malware-analysis/malware-researchers-handbook/)
+
 Remark: It feels impossible to figure out what this function does just by looking at the Assembly file and without any prior knowledge or context.
 
 ## Q4 - fib_wrapper_3.exe

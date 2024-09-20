@@ -18,7 +18,7 @@ int main()
     PVOID procAddress = MyGetProcAddress(hModule, MAKEINTRESOURCEA(2));
     if (!procAddress) {
         FreeLibrary(hModule);
-        std::cerr << "Could not load function by ordinal 1 from fib.dll" << std::endl;
+        std::cerr << "Could not load function from fib.dll" << std::endl;
         return EXIT_FAILURE;
     }
 
