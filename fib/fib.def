@@ -1,0 +1,4 @@
+LIBRARY Fib
+EXPORTS
+    fib @1
+    fib_noname @2 NONAME
