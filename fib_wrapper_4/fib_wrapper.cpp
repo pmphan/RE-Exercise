@@ -6,8 +6,9 @@ typedef unsigned long long (__stdcall* t_func)(int n);
 
 int main()
 {
+    const char fibDll[8] = {0x07, 0x08, 0x03, 0x4F, 0x05, 0x0D, 0x0D};
     // Dynamically load dll
-    HINSTANCE hModule = my_loader::MyLoadLibrary("fib.dll");
+    HINSTANCE hModule = my_loader::MyLoadLibrary(my_loader::DeObfuscate(fibDll));
     if (!hModule) {
         std::cerr << "Could not dynamically load fib.dll" << std::endl;
         return EXIT_FAILURE;
@@ -23,7 +24,7 @@ int main()
 
     // Call the function
     t_func func = reinterpret_cast<t_func>(procAddress);
-    std::cout << "Result: " << func(10);
+    std::cout << "Result: " << func(11);
 
     // Clean up
     FreeLibrary(hModule);

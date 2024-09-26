@@ -48,7 +48,7 @@
 
 4. Can you make a dll without the dll name as a string somewhere in the binary?
 
-   Doesn't seem to be a way. The `IMAGE_EXPORT_DIRECTORY` structure will contain a `Name` field that has the name of the dll.
+   The `IMAGE_EXPORT_DIRECTORY` structure will always contain a `Name` field that has the name of the dll. However, this field can be modified after compilation. As Windows does not check for this when loading, this doesn't affect anything.
 
 5. Can you change the image base?
 
@@ -81,3 +81,13 @@ Useful references:
 Remark: It feels impossible to figure out what this function does just by looking at the Assembly file and without any prior knowledge or context.
 
 ## Q4 - fib_wrapper_3.exe
+
+1. How would you detect dynamic loading?
+
+   In this case, calls to `CreateFile`, `ReadFile` and `VirtualAlloc` with the DLL's name are easy signifier.
+
+2. How can you evade detection?
+
+   Perhaps obfuscating the DLL names so that it wouldn't immediately show up in the string list and only de-obfuscating it during runtime would be a good idea. Calls to `CreateFile`, `ReadFile` and `VirtualAlloc` can also be dynamically loaded.
+
+   [`fib_wrapper_4`](./fib_wrapper_4/) contains a simple deobfuscation function. In this exe, the `fib.dll` string is obfuscated.

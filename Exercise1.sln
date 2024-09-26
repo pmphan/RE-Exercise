@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fib_wrapper_2", "fib_wrappe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fib_wrapper_3", "fib_wrapper_3\fib_wrapper_3.vcxproj", "{3243603E-BB98-41BE-871B-257F54BF071E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fib_wrapper_4", "fib_wrapper_4\fib_wrapper_4.vcxproj", "{ABDB536C-76B9-4DA9-A75A-3D49911E8CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,6 +35,10 @@ Global
 		{3243603E-BB98-41BE-871B-257F54BF071E}.Debug|x64.Build.0 = Debug|x64
 		{3243603E-BB98-41BE-871B-257F54BF071E}.Release|x64.ActiveCfg = Release|x64
 		{3243603E-BB98-41BE-871B-257F54BF071E}.Release|x64.Build.0 = Release|x64
+		{ABDB536C-76B9-4DA9-A75A-3D49911E8CDA}.Debug|x64.ActiveCfg = Debug|x64
+		{ABDB536C-76B9-4DA9-A75A-3D49911E8CDA}.Debug|x64.Build.0 = Debug|x64
+		{ABDB536C-76B9-4DA9-A75A-3D49911E8CDA}.Release|x64.ActiveCfg = Release|x64
+		{ABDB536C-76B9-4DA9-A75A-3D49911E8CDA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -246,3 +246,17 @@ BOOL my_loader::IsValidPE(PVOID hModule) {
     }
     return true;
 }
+
+CHAR* my_loader::DeObfuscate(const char* input) {
+    // Simple de-obfuscate function
+	const char key = 'a';
+    size_t length = strlen(input);
+    char* obfuscated = new char[length + 1];
+
+    for (size_t i = 0; i < length; ++i) {
+        obfuscated[i] = input[i] ^ key;
+    }
+    obfuscated[length] = '\0';
+
+    return obfuscated;
+}
